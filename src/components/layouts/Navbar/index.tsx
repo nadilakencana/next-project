@@ -1,6 +1,10 @@
+import styles from "./navbar.module.css"
+
 const Navbar = () =>{
     return(
-        <div className="navbar">
+
+        // ini cara memanggil class dari css modules
+        <div className={styles.navbar}> 
             <div>
                 Navbar component
             </div>

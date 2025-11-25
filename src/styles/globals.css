@@ -89,13 +89,7 @@ a {
   text-decoration: none;
 }
 
-.navbar{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  background-color: #16161683;
-}
+
 
 /* body {
   color: rgb(var(--foreground-rgb));
