@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Navbar from "../Navbar" 
 
 
-const disableNavbar = ["/auth/login", "/auth/regist"];
+const disableNavbar = ["/auth/login", "/auth/regist", "/404"];
 
 const AppMain = ({children}: {children: React.ReactNode}) =>{
     const {pathname} = useRouter();
