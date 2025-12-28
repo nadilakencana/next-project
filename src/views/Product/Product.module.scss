@@ -11,6 +11,37 @@
     &__list{
         display: flex;
 
+        &__skeleton{
+            width: 25%;
+            padding: 10px;
+            animation: loadingShimmer 1.5s infinite;
+            &__image{
+                width: 100%;
+                aspect-ratio: 1/1;
+                background-color: #e0e0e0;
+                margin-bottom: 10px;
+            }
+            &__name{
+                width: 80%;
+                height: 20px;
+                background-color: #e0e0e0;
+                margin-bottom: 5px;    
+            }
+            &__price{
+                width: 40%;
+                height: 20px;
+                background-color: #e0e0e0;
+                  
+            }
+            &__category{
+                width: 60%;
+                height: 15px;
+                background-color: #e0e0e0;
+                margin-top: 5px; 
+                  
+            }
+        }
+
         &__item{
            
             width: 25%;
@@ -24,7 +55,7 @@
             }
             &__name{
                 font-size: 18px;
-                font-weight: 500;
+                font-weight:bold;
                 margin-bottom: 5px;
             }
             &__price{
@@ -40,4 +71,16 @@
     }
     
 
+}
+
+@keyframes loadingShimmer {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
