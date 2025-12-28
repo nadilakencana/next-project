@@ -1,22 +1,31 @@
+import ProductView from "@/views/Product";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 
+
 const ProductPage = () =>{
 
-    const[isLogin, setIsLogin] = useState(false);
+    const[isLogin, setIsLogin] = useState(true);
+    const[products, setProducts] = useState([]);
     const{ push } = useRouter();
-
+    console.log(products);
     useEffect(() => {
         if(!isLogin){
             push("/auth/login")
         }
     }, [])
 
+    useEffect(() => {
+        fetch("/api/product")
+        .then((res) => res.json())
+        .then((data) => setProducts(data.data))
+    }, [])  
 
     return (
         <div>
-            <h2>Product Page</h2>
+           <ProductView products={products}/>
+                
         </div>
     )
 }
