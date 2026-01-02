@@ -1,13 +1,5 @@
 import style from "./Product.module.scss";
-
-
-type productType = {
-    id: string;
-    name: string;
-    price: number;
-    categories: string;
-    image: string;
-};
+import { productType } from "@/types/product.type";
 
 
 

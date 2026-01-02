@@ -1,16 +1,17 @@
+import { fetcher } from "@/utils/fetcher/fetcher";
 import { useRouter } from "next/router";
-
-
-
+import useSWR from "swr";
+import DetailProduct from "@/views/Product/detailProduct";
 const DetailProductPage = () =>{
 
     const {query} = useRouter();
-    console.log(query.slug); // Access the dynamic route parameter 'slug'
+    const {data, error, isLoading} = useSWR(`/api/product/${query.slug}`, fetcher);
+    console.log(data);
 
      return (
         <div>
             <h1>Detail Product</h1>
-            <span>Product: {query.slug}</span>
+            <DetailProduct product={isLoading ? [] : data.data}/>
         </div>
      )
 }

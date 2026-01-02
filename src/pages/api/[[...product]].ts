@@ -1,4 +1,4 @@
-import { retrieveData } from "@/utils/db/service";  
+import { retrieveData, retrieveDataById } from "@/utils/db/service";  
 import type { NextApiRequest,NextApiResponse } from "next";
 // import { useRouter } from "next/router";
 // import { useEffect, useState } from "react";
@@ -15,12 +15,23 @@ export default async function handler(
     res: NextApiResponse<Data>
 ) {
     try {
-        const products = await retrieveData("products");
-        res.status(200).json({
-            status: true,
-            statusCode: 200,
-            data: products
-        });
+        if(req.query.product![1]){
+            const product = await retrieveDataById("products", req.query.product![1]);
+            res.status(200).json({
+                status: true,
+                statusCode: 200,
+                data: product
+            })
+        }else{
+            const products = await retrieveData("products");
+            console.log(products)
+            res.status(200).json({
+                status: true,
+                statusCode: 200,
+                data: products
+            });
+        }
+        
     } catch (error) {
         res.status(500).json({
             status: false,
