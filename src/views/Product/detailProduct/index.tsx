@@ -3,7 +3,9 @@ import style from "./detail.module.scss";
 
 const DetailProduct= ({product}: {product: productType}) =>{
     return (
-         <div className={style.product__detail}>
+        <>
+        <h1 className={style.title}>Detail Product</h1>
+        <div className={style.product__detail}>
             <div className={style.product__detail__image}>
                 <img src={product.image} alt={product.name} />
             </div>
@@ -21,6 +23,8 @@ const DetailProduct= ({product}: {product: productType}) =>{
             </p>
 
         </div>
+        </>
+         
     )
 }
 
