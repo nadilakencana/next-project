@@ -22,5 +22,6 @@ export async function getStaticProps(){
         props: {
             products: response.data,
         },
+        // revalidate: 10, // melakukan validate api data ulang setiap 10 detik 
     }
 }

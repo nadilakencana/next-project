@@ -36,7 +36,7 @@ export default DetailProductPage;
 //     }
 // }
 
-// staic site generation with dynamic route
+// static site generation with dynamic route
 export async function getStaticPaths(){
     const res = await fetch("http://localhost:3000/api/product");
     const response = await res.json();
@@ -47,7 +47,7 @@ export async function getStaticPaths(){
 
     return {
         paths,
-        fallback: false,
+        fallback: 'blocking',
     }
 }
 
@@ -59,5 +59,6 @@ const response = await res.json();
         props: {
             products: response.data,
         },
+        revalidate: 10, // melakukan validate api data ulang setiap 10 detik
     }
 }
